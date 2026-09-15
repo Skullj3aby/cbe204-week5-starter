@@ -34,12 +34,6 @@ app.get("/api/tasks", (req, res) => {
     res.send(tasks);
 });
 
-app.get("/api/tasks/:id", (req, res) => {
-    const id = req.params.id;
-    const task = tasks.find(task => (task.id == id));
-    res.status(200).send(task);
-});
-
 app.post("/api/tasks", (req, res) => {
     const newTask = {
         ...req.body,
@@ -47,35 +41,6 @@ app.post("/api/tasks", (req, res) => {
     };
     tasks.push(newTask);
     res.status(201).json(tasks);
-});
-
-app.put("/api/tasks/:id", (req, res) => {
-    const task = tasks.find(task => task.id == req.params.id);
-
-    if (!task) {
-        return res.status(404).json({ message: "Task not found" });
-    }
-
-    if (req.body.title !== undefined) {
-        task.title = req.body.title;
-    }
-
-    if (req.body.completed !== undefined) {
-        task.completed = req.body.completed;
-    }
-
-    res.status(200).json(task);
-});
-
-app.delete("/api/tasks/:id", (req, res) => {
-    const taskIndex = tasks.findIndex(task => task.id == req.params.id);
-
-    if (taskIndex === -1) {
-        return res.status(404).json({ message: "Task not found" });
-    }
-
-    tasks.splice(taskIndex, 1);
-    res.status(200).json(tasks);
 });
 
 app.listen(3000, () => {
