@@ -34,7 +34,7 @@ app.get("/api/tasks", (req, res) => {
     res.send(tasks);
 });
 
-app.get("/api/task/:id", (req, res) => {
+app.get("/api/tasks/:id", (req, res) => {
     const id = Number(req.params.id);
 
     if (!Number.isInteger(id) || id < 1) {

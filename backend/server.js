@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // server.js
 // CBE204 Week 5 - Task Manager backend (final version)
 //
@@ -11,6 +12,8 @@
 // server_all_error.js / server_challenge.js. The list/create/update/
 // delete routes use the plural "/api/tasks".
 
+=======
+>>>>>>> 0334150a94a939889ec9f18fdc25695e52a067c0
 import express from "express";
 import cors from "cors";
 
@@ -25,10 +28,16 @@ const tasks = [
         "title": "Build REST API",
         "completed": false
     }
+<<<<<<< HEAD
 ];
 
 const app = express();
 
+=======
+]
+
+const app = express();
+>>>>>>> 0334150a94a939889ec9f18fdc25695e52a067c0
 app.use(cors({
     origin: ['http://localhost:5500', 'http://127.0.0.1:5500']
 }));
@@ -44,11 +53,15 @@ app.get("/", (req, res) => {
     res.send("Welcome CBE204 Week5!");
 });
 
+<<<<<<< HEAD
 // Read all tasks
+=======
+>>>>>>> 0334150a94a939889ec9f18fdc25695e52a067c0
 app.get("/api/tasks", (req, res) => {
     res.send(tasks);
 });
 
+<<<<<<< HEAD
 // Read one task
 app.get("/api/task/:id", (req, res) => {
     const id = Number(req.params.id);
@@ -81,12 +94,18 @@ app.post("/api/tasks", (req, res) => {
     const newTask = {
         title: title.trim(),
         completed: completed ?? false,
+=======
+app.post("/api/tasks", (req, res) => {
+    const newTask = {
+        ...req.body,
+>>>>>>> 0334150a94a939889ec9f18fdc25695e52a067c0
         id: Math.max(...tasks.map(task => task.id), 0) + 1
     };
     tasks.push(newTask);
     res.status(201).json(tasks);
 });
 
+<<<<<<< HEAD
 // Update a task
 app.put("/api/tasks/:id", (req, res) => {
     const id = Number(req.params.id);
@@ -163,3 +182,8 @@ app.use((error, req, res, next) => {
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
+=======
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+>>>>>>> 0334150a94a939889ec9f18fdc25695e52a067c0

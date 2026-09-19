@@ -32,10 +32,18 @@ body::before {
 #taskForm,
 #loadingIndicator,
 #taskList,
+#loadingMessage,
 #errorMessage {
     width: min(100%, 560px);
     margin-right: auto;
     margin-left: auto;
+}
+
+#loadingMessage {
+    margin-top: 1.4rem;
+    color: #28766b;
+    font-size: 0.95rem;
+    text-align: center;
 }
 
 #taskForm {

@@ -34,7 +34,7 @@ app.get("/api/tasks", (req, res) => {
     res.send(tasks);
 });
 
-app.get("/api/task/:id", (req, res) => {
+app.get("/api/tasks/:id", (req, res) => {
     const id = req.params.id;
     const task = tasks.find(task => (task.id == id));
     res.status(200).send(task);
@@ -81,3 +81,5 @@ app.delete("/api/tasks/:id", (req, res) => {
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
+
+// add comment here for demonstration
