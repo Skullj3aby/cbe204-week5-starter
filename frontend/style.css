@@ -30,6 +30,7 @@ body::before {
 }
 
 #taskForm,
+#loadingIndicator,
 #taskList,
 #errorMessage {
     width: min(100%, 560px);
@@ -92,6 +93,9 @@ button:active {
 }
 
 #taskList>div {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
     padding: 1rem 1.1rem;
     color: #30434a;
     font-size: 1rem;
@@ -99,6 +103,70 @@ button:active {
     border-left: 4px solid #e29b4b;
     border-radius: 5px;
     box-shadow: 0 5px 14px rgba(45, 70, 65, 0.08);
+}
+
+.task.completed {
+    border-left-color: #28766b;
+}
+
+.task-title {
+    flex: 1;
+    word-break: break-word;
+}
+
+.task.completed .task-title {
+    color: #8a9a95;
+    text-decoration: line-through;
+}
+
+.task input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.5rem 0.65rem;
+    font: inherit;
+    background: #f2f6f3;
+    border: 1px solid #cbd9d4;
+    border-radius: 6px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.task-actions button {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+button.secondary {
+    color: #24313b;
+    background: #dfe8e4;
+}
+
+button.secondary:hover {
+    background: #cdd9d4;
+}
+
+button.danger {
+    background: #b3492f;
+}
+
+button.danger:hover {
+    background: #963c27;
+}
+
+.empty-state {
+    padding: 1.2rem 0;
+    color: #6c7f79;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+#loadingIndicator {
+    margin-top: 1rem;
+    color: #28766b;
+    font-size: 0.9rem;
 }
 
 #errorMessage {
